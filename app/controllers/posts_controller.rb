@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    post = Post.create(content: params[:content], checked: false) #投稿時に、checkedカラムにfalse(未読)を追加して保存
+    render json:{ post: post } #json:{post :post}としてレスポンスを返す
   end
 
   def checked
