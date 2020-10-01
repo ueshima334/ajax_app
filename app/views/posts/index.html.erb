@@ -3,11 +3,8 @@
   <%= form.text_field :content %>
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
-
 <% @posts.each do |post| %>
-   <div class="post">
-    <div class="post-date">
-      投稿日時：<%= post.created_at %>
+<div class="post" data-id=<%= post.id %> data-check=<%= post.checked %>>    <div class="post-date"> <%# date-idとdata-checkという属性を追加している(カスタムデータ)      投稿日時：<%= post.created_at %>
     </div>
     <div class="post-content">
       <%= post.content %>
